@@ -33,7 +33,6 @@ def get_proper_plist(num):
         return plist
 
 def isprime(num): #소수일 땐 True를 리턴하고, 소수가 아닐 땐 False를 리턴
-    l=list()
     #가진 소수 리스트가 판별하려는 수를 넘을 경우, 리스트와 직접 비교하여 바로 판별
     if plist[-1]>=num:
         for p in plist:

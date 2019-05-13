@@ -19,7 +19,6 @@ def add_primes(num):
 #알고 있는 소수 리스트로 바로 판별 가능한 경우와, 소수 리스트를 추가해와야 하는 경우로 나뉜다.
 def get_proper_plist(num):
     l=list()
-
     #가진 리스트로 판별 가능한 경우
     if plist[-1] >= num:
         for p in plist:

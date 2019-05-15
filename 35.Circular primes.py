@@ -11,7 +11,7 @@ import prime, time
 p=prime.isprime
 s=time.time()
 
-# 숫자계산으로 자릿수를 바꿔주는 방법
+# 숫자계산으로 자릿수를 바꿔주는 방법: 25초
 def rotate_cal(num): # 일의자리를 빼서 가장 높은자리로 올려주는 함수.
     digits = list() # 1. num을 1의자리부터 digits 리스트로 바꿔서 대입
     while num >=1:
@@ -28,7 +28,7 @@ def rotate_cal(num): # 일의자리를 빼서 가장 높은자리로 올려주�
 
     return value
 
-# 문자열로 변환하여 자리를 바꿔주는 방법
+# 문자열로 변환하여 자리를 바꿔주는 방법: 22초
 def rotate_str(num):
     s = str(num)
     val = s[-1] + s[:-1]
@@ -36,11 +36,11 @@ def rotate_str(num):
     return n
 
 def is_circular_prime(num):
+    # num이 소수가 아니라면 바로 끝냄
     if p(num)==False: return False
     length = len(str(num))
     for i in range(1, length):
-        num = rotate_str(num) # dur 22sec
-        # num = rotate_cal(num) # dur 25sec
+        num = rotate_str(num)
         if p(num)==False: return False
     return True
 
@@ -54,9 +54,7 @@ def has_zero(num):
 
 count=0
 for i in range(1, 1000000):
-    if has_zero(i)==False:
-        if is_circular_prime(i) == True: count+=1
-            #print("{i} is circular prime".format(i=i))
+    if has_zero(i)==False and is_circular_prime(i) == True: count+=1
 
 print(count)
 print(time.time()-s)

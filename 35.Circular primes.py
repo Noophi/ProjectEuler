@@ -39,8 +39,10 @@ def is_circular_prime(num):
     # num이 소수가 아니라면 바로 끝냄
     if p(num)==False: return False
     length = len(str(num))
-    for i in range(1, length):
+    i=0
+    while i<length:
         num = rotate_str(num)
+        i+=1
         if p(num)==False: return False
     return True
 
